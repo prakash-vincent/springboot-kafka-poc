@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: springboot-kafka-poc
+  kafka:
+    producer:
+      # List of Kafka brokers
+      bootstrap-servers: localhost:9092
+      # Key serializer (default: StringSerializer)
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      # Value serializer (can be customized based on your data format)
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer  # Replace with your serializer class
+      # Additional producer properties (optional)
+      properties:
+        # Batch size for sending messages (adjust based on message size and throughput)
+        batch-size: 16384
+        # Buffer memory for unsent messages (adjust based on message size and volume)
+        buffer-memory: 33554432
+        # Enable retries on send failures (adjust based on error handling needs)
+        retries: 3
